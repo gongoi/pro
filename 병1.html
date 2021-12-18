@@ -26,14 +26,23 @@
 </style>
 
 <script>
+  //장치에서 장치의 위치정보를 가져오는 코드
+  //navigator 브라우저
+  //geolocation 지리,위치
+  //get Current position 현재 위치를 좌표로 가져온다.
   navigator.
   geolocation.
   getCurrentPosition(pos)
 
-let url;
+let url;//우리가 지도로 띄울 페이지 주소!
+  //위도와 경도가 p에 들어있다!
 function pos(p){
   console.log(p.coords.latitude);
   console.log(p.coords.longitude);
+  //구글 맵에서 피부과라는 키워드로 검색하는데,
+  //p에서 받은 위도와 경도 정보를 조합하고, 화면의 크기를 14z 맞춘다.
+  //https://www.google.com/maps/search/ <-구글맵 기본주소
+  //피부과라는 키워드로 검색
 url="https://www.google.com/maps/search/피부과/@"
      +p.coords.latitude
      +","
@@ -42,7 +51,11 @@ url="https://www.google.com/maps/search/피부과/@"
      +"14z"
   console.log(url);
 }
+  
+//새창 듸우는 함수
 function newWin(){
+  //open은 페이지 열기
+  //url을 연다.
   open(url);
 }
 </script>
@@ -50,21 +63,26 @@ function newWin(){
 
 
 <body>
-
+  <!--박스 생성 -->
   <div class="my">
+    <!--이미지가 들어갈 박스 생성 -->
     <div class="box m-3">
+      <!--우리가 만든 이미지 넣기 -->
       <img width="700px" src="찰과상.png" alt="">
     </div>
-
+    <!--버튼을 넣을 박스 생성 -->
     <div class="m-3">
+      <!--버튼 생성 -->
       <button class="button is-success is-fullwidth">
+        <!--p5.html로 돌아가는 기능 -->
         <a href="p5.html">
           다시하기
         </a>
       </button>
     </div>
-
+    <!--버튼을 넣을 박스 생성 -->
     <div class="m-3">
+      <!--버튼 생성 이 버튼을 누르면 newWin이라는 함수 실행-->
       <button onclick="newWin()" class="button is-danger is-fullwidth">
           병원찾기
       </button>
